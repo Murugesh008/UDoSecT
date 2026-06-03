@@ -1,6 +1,6 @@
 import json
 import sys
-from modules import whois_scan, dns_scan
+from modules import whois_scan, dns_scan, port_scan
 
 def run(target: str):
     # Central results dictionary — every module adds its own key here.
@@ -23,6 +23,8 @@ def run(target: str):
     # Pretty-print the full results as JSON.
     # indent=2 keeps it human-readable in the terminal.
     print(json.dumps(results, indent=2))
+    print(f"[*] Running port scan on {target}...")
+    results["ports"] = port_scan.run(target)
 
 if __name__ == "__main__":
     # sys.argv[0] is always the script name itself, so the target
