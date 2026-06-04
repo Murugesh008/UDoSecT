@@ -1,6 +1,6 @@
 import json
 import sys
-from modules import whois_scan, dns_scan, port_scan,geo_scan,ssl_scan
+from modules import whois_scan, dns_scan, port_scan,geo_scan,ssl_scan,llm_analysis
 
 def run(target: str):
     # Central results dictionary — every module adds its own key here.
@@ -12,6 +12,7 @@ def run(target: str):
     print(f"[*] Running port scan on {target}...")
     print(f"[*] Running geolocation on {target}...")
     print(f"[*] Running SSL scan on {target}...")
+    print(f"[*] Running LLM analysis...")
 
     # Each module exposes a run(target) function that returns a dict.
     # We just call it and store the result under its key.
@@ -24,6 +25,7 @@ def run(target: str):
     results["ports"] = port_scan.run(target)
     results["ssl"]   = ssl_scan.run(target)
     results["geo"] = geo_scan.run(target)
+    results["analysis"] = llm_analysis.run(results)
     # Pretty-print the full results as JSON.
     # indent=2 keeps it human-readable in the terminal.
     print(json.dumps(results, indent=2))
