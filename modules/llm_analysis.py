@@ -51,13 +51,29 @@ Your response must follow this exact structure:
 }
 
 Scoring guidance:
-- 0-25: LOW — nothing suspicious, well configured
-- 26-50: MEDIUM — some concerns worth monitoring
-- 51-75: HIGH — clear issues that need attention
+- 0-25: LOW — nothing suspicious, well configured, clear legitimate owner
+- 26-50: MEDIUM — some concerns worth monitoring, minor misconfigurations
+- 51-75: HIGH — clear issues, suspicious patterns, poor configuration
 - 76-100: CRITICAL — immediate action required
 
+Additional flags that MUST increase the risk score:
+- Domain has no clear organizational identity or real owner
+- Minimal or bare-bones DNS configuration
+- Domain is a known placeholder, reserved, or test domain
+- No AAAA records combined with minimal TXT records
+- Registrar or org field shows generic or placeholder values
+- Open ports beyond 80/443 without clear justification (e.g. 8080, 8443 on unknown domains)
+- SSL cert covers very few or generic domains in subject alt names
+- Geolocation does not match the expected organization location
+- Domain was recently created (under 1 year old)
+- SSL certificate expiring within 30 days
+- No MX records — domain cannot receive email, suspicious for any real organization
+- TLS version is TLSv1.0 or TLSv1.1 — outdated and insecure
+- WHOIS emails are generic abuse addresses with no organizational contact
+- Reverse DNS does not match the forward DNS domain
+
 Base your analysis on all available data: WHOIS, DNS, ports, SSL, and geolocation.
-Flag things like: expiring certs, old domains, unusual open ports, missing security records, suspicious registrars."""
+Be critical and thorough — do not assume legitimacy just because a domain is old or uses a known provider."""
 
         # ── User prompt ───────────────────────────────────────────────────
         # The actual data we want analyzed. Keeping system and user prompts
