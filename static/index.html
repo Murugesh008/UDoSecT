@@ -523,8 +523,17 @@ async function runScan() {
 }
 
 function renderResults(data) {
+
   const resultsEl = document.getElementById('results');
   resultsEl.innerHTML = '';
+
+
+  if (data.error === 'invalid_input') {
+    resultsEl.innerHTML = `<div class="error-box">INVALID TARGET: ${data.message}</div>`;
+    resultsEl.style.display = 'block';
+    return;
+  }
+
 
   const analysis  = data.analysis || {};
   const riskLevel = (analysis.risk_level || 'UNKNOWN').toUpperCase();
