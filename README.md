@@ -206,20 +206,10 @@ Sends the full aggregated results JSON to the Groq API (llama-3.3-70b-versatile)
 
 ---
 
-## ⚠️ Legal & Ethical Use
-
-This tool is intended for **educational and ethical security research purposes only**.
-
-- Only scan domains and IPs you own or have explicit permission to scan
-- Port scanning without permission may be illegal in your jurisdiction
-- The authors are not responsible for misuse of this tool
-
----
-
 ## 👥 Authors
 
 Built by two tech undergraduates as a portfolio project at the intersection of cybersecurity and AI/ML.
--Murugesh and Shrivatshan
+- Murugesh and Shrivatshan
 ---
 
 
