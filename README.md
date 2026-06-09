@@ -1,4 +1,4 @@
-# 🔍 UDST (USER DOMAIN SECURITY TOOL)
+# 🔍 UDoSecT (USER DOMAIN SECURITY TOOL)
 
 > An open source intelligence (OSINT) tool that scans a target domain or IP, aggregates data across multiple recon modules, and uses an LLM to generate a structured threat intelligence report.
 
